@@ -1,0 +1,463 @@
+Screen {
+    layout: vertical;
+    background: $background;
+}
+
+#titlebar {
+    height: 1;
+    padding: 0 1;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    background: $panel;
+    color: $text-muted;
+}
+
+#filterbar {
+    height: 1;
+    background: $surface;
+}
+
+#slash {
+    width: 3;
+    padding-left: 1;
+    color: $accent;
+    text-style: bold;
+}
+
+#filter {
+    width: 1fr;
+    height: 1;
+    border: none;
+    padding: 0;
+    background: $surface;
+}
+
+#filter:focus {
+    border: none;
+    background: $boost;
+}
+
+#filter.-invalid {
+    color: $error;
+}
+
+#count {
+    width: auto;
+    min-width: 12;
+    max-width: 60%;
+    padding: 0 1;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    color: $text-muted;
+    text-align: right;
+}
+
+#panes {
+    height: 1fr;
+}
+
+#browse {
+    width: 26;
+    padding: 0;
+    background: $background;
+    border-right: solid $panel;
+}
+
+#browse:focus {
+    border-right: solid $accent;
+}
+
+#table {
+    width: 1fr;
+    background: $background;
+    scrollbar-size-vertical: 1;
+    scrollbar-background: $background;
+    scrollbar-color: $panel;
+}
+
+SampleTable > .sample-table--header {
+    color: $text-muted;
+    background: $surface;
+    text-style: bold;
+}
+
+SampleTable > .sample-table--cursor {
+    color: $background;
+    background: $accent;
+    text-style: bold;
+}
+
+SampleTable > .sample-table--cursor-blur {
+    color: $text;
+    background: $panel;
+}
+
+SampleTable > .sample-table--marked {
+    background: $primary-muted;
+}
+
+#details {
+    width: 36;
+    height: 100%;
+    padding: 0 1;
+    background: $background;
+    border-left: solid $panel;
+    overflow-y: auto;
+}
+
+TransportBar {
+    height: 1;
+    background: $panel;
+}
+
+TransportBar Static {
+    width: auto;
+    height: 1;
+    color: $text-muted;
+    text-wrap: nowrap;
+}
+
+TransportBar .control {
+    padding: 0 1;
+    color: $text;
+}
+
+TransportBar .control:hover {
+    background: $boost;
+}
+
+TransportBar .control.-lit {
+    color: $accent;
+    text-style: bold;
+}
+
+TransportBar .control.-idle {
+    color: $text-muted;
+}
+
+TransportBar .control.stop {
+    color: $error;
+    text-style: bold;
+}
+
+TransportBar .control.stop.-idle {
+    color: $text-muted;
+    text-style: none;
+}
+
+TransportBar .time {
+    padding: 0 1;
+    color: $text;
+}
+
+TransportBar .volume {
+    width: 4;
+    text-align: center;
+}
+
+TransportBar .view {
+    dock: right;
+}
+
+Screen.-w-small TransportBar .optional {
+    display: none;
+}
+
+#viz {
+    height: 30%;
+    min-height: 6;
+    background: $background;
+}
+
+Screen.-zoomed #viz {
+    height: 75%;
+}
+
+Screen.-no-details #details {
+    display: none;
+}
+
+/* Narrow terminals drop the side panes, so the table always stays usable */
+Screen.-w-medium #details,
+Screen.-w-small #details {
+    display: none;
+}
+
+Screen.-w-small #browse {
+    display: none;
+}
+
+/* Dialogs */
+
+ModalScreen {
+    align: center middle;
+    background: $background 60%;
+}
+
+.dialog {
+    width: 96;
+    max-width: 94%;
+    height: auto;
+    padding: 1 2;
+    background: $surface;
+    border: round $accent;
+}
+
+.dialog-title {
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+.dialog-detail {
+    color: $text-muted;
+    margin-bottom: 1;
+}
+
+.dialog-buttons {
+    height: auto;
+    margin-top: 1;
+    align-horizontal: right;
+}
+
+.dialog-buttons Button {
+    margin-left: 1;
+}
+
+.edit-row {
+    height: 1;
+    margin-bottom: 1;
+}
+
+.edit-label {
+    width: 13;
+    color: $text-muted;
+}
+
+.edit-row Input {
+    width: 1fr;
+    height: 1;
+    border: none;
+    padding: 0 1;
+    background: $boost;
+}
+
+.edit-row Input:focus {
+    border: none;
+    background: $primary-muted;
+}
+
+#edit-preview {
+    height: auto;
+    margin-top: 1;
+    color: $success;
+}
+
+#export-dir {
+    margin-bottom: 1;
+}
+
+#help-box {
+    width: 82;
+    max-width: 96%;
+    height: auto;
+    max-height: 96%;
+    padding: 1 2;
+    background: $surface;
+    border: round $accent;
+}
+
+.genre-dialog {
+    height: 80%;
+}
+
+#genre-list {
+    height: 1fr;
+    margin-bottom: 1;
+    border: none;
+}
+
+#genre-new {
+    margin-bottom: 0;
+}
+
+/* The Finder */
+
+#finder-heading {
+    height: 1;
+    padding: 0 1;
+    background: $panel;
+}
+
+#finder-filter {
+    width: 1fr;
+    height: 1;
+    border: none;
+    padding: 0;
+    background: $surface;
+}
+
+#finder-filter:focus {
+    border: none;
+    background: $boost;
+}
+
+#finder-filter.-invalid {
+    color: $error;
+}
+
+#finder-body {
+    height: 1fr;
+}
+
+#finder-categories {
+    width: 24;
+    background: $background;
+    border-right: solid $panel;
+}
+
+#finder-categories:focus {
+    border-right: solid $accent;
+}
+
+#finder-plane {
+    width: 1fr;
+    height: 100%;
+    background: $background;
+}
+
+#finder-plane:focus {
+    background: $surface;
+}
+
+#finder-side {
+    width: 50;
+    border-left: solid $panel;
+}
+
+#finder-counts {
+    height: 1;
+    padding: 0 1;
+}
+
+#finder-counts .count-label {
+    width: auto;
+    color: $text-muted;
+}
+
+#finder-counts .control {
+    width: auto;
+    color: $text-muted;
+}
+
+#finder-counts .control.-lit {
+    color: $background;
+    background: $accent;
+    text-style: bold;
+}
+
+#finder-status {
+    height: auto;
+    padding: 0 1;
+    color: $text-muted;
+    margin-bottom: 1;
+}
+
+#finder-results {
+    height: 1fr;
+    border: none;
+    background: $background;
+    padding: 0;
+}
+
+#finder-results:focus {
+    border: none;
+}
+
+#finder-viz {
+    height: 7;
+    background: $background;
+}
+
+Screen.-w-small #finder-categories {
+    display: none;
+}
+
+Screen.-w-small #finder-side {
+    width: 44%;
+}
+
+/* The bank builder */
+
+#bank-heading, #bank-selected {
+    height: 1;
+    padding: 0 1;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+#bank-heading {
+    background: $panel;
+}
+
+#bank-grid {
+    grid-size: 4 4;
+    grid-gutter: 1 1;
+    grid-rows: 1fr;
+    grid-columns: 1fr;
+    height: 1fr;
+    padding: 1 1 0 1;
+}
+
+.pad {
+    height: 100%;
+    padding: 0 1;
+    background: $surface;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pad.-empty {
+    color: $text-muted;
+    background: $surface 40%;
+}
+
+.pad:hover {
+    background: $boost;
+}
+
+.pad.-cursor {
+    background: $primary-muted;
+}
+
+.pad.-playing {
+    background: $success-muted;
+}
+
+#bank-viz {
+    height: 7;
+    background: $background;
+}
+
+Screen.-h-small #bank-viz {
+    display: none;
+}
+
+Screen.-h-small #bank-grid {
+    grid-gutter: 0 1;
+    padding: 0 1;
+}
+
+#report-box {
+    width: 110;
+    max-width: 96%;
+    height: auto;
+    max-height: 90%;
+    padding: 1 2;
+    background: $surface;
+    border: round $accent;
+}
+
+#report-text {
+    height: auto;
+    margin-bottom: 1;
+}
