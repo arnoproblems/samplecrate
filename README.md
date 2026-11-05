@@ -352,3 +352,8 @@ The tests never touch your library or your Trash, and no sound plays. The one ex
 | `player.py` | Playback, on a real or silent output stream |
 | `viz.py` | Visualizer math: pure functions, no UI |
 | `tui/` | The Textual app, table, visualizer, maps, Finder, bank builder and dialogs |
+
+## License
+
+The code is under the [MIT License](LICENSE). The four samples in `examples/library` aren't covered by it: they come from
+third-party sample packs.
