@@ -28,6 +28,20 @@ To run it without installing, use `uv run crate`. To update an installed copy af
 
 The library is `~/Music/sorted` by default. To use another one, pass `--library PATH` or set `$CRATE_LIBRARY`.
 
+To try it without a library of your own, `examples/library` holds one snare for each corner of the snare map. The
+Finder needs at least 5 samples in a category, so it has nothing to search here.
+
+```sh
+uv run crate --library examples/library
+```
+
+| Corner | Sound | Sample |
+|---|---|---|
+| Woody | Dark and tight | `organic-trap-1-wet-dark-tight` |
+| Snappy | Bright and tight | `tight-22` |
+| Fat | Dark and long | `dark-noisy-11` |
+| Splashy | Bright and long | `dub` |
+
 ## The TUI
 
 Press `?` inside the app for the full list of keys. The ones you'll use most:

@@ -1,3 +1,4 @@
+from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
@@ -5,7 +6,7 @@ import pytest
 
 from samplecrate import features as fx
 from samplecrate import naming, planes
-from samplecrate.library import Sample
+from samplecrate.library import Library, Sample
 from samplecrate.naming import parse_name
 
 
@@ -24,6 +25,21 @@ def sample(sub="Kick", type_="OneShot", main="Drums", desc="x", **kw):
 
 def kicks(n=10):
     return [sample(desc=f"k{i}", center=40.0 + i * 10, decay=0.1 + i * 0.05) for i in range(n)]
+
+
+def test_example_snares_each_land_on_their_own_corner():
+    """The README promises this, and positions are ranks, so it holds only among these four."""
+    library = Library(Path(__file__).parent.parent / "examples" / "library", read_only=True).scan()
+    for s in library.samples:
+        s.features = fx.measure(s.path)
+    space = planes.SoundSpace(library.samples)
+    spec = planes.character_spec(("Drums", "OneShot", "Snare"))
+    assert {s.desc: planes.corner_word(spec, space.character[s.rel]) for s in library.samples} == {
+        "organic-trap-1-wet-dark-tight": "Woody",
+        "tight-22": "Snappy",
+        "dark-noisy-11": "Fat",
+        "dub": "Splashy",
+    }
 
 
 def test_percentiles_spread_evenly():
